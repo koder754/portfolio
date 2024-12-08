@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>My Personal Portfolio</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to My Portfolio!</h1>
+        <p>HTML is my first step into web development!</p>
+    </header>
+
+    <!-- Navigation -->
+    
+<nav>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Anna. learning HTML, and I love creating webpages.</p>
+        <ul>
+            <li>Hobbies: Coding, sewing, annoying my husband</li>
+            <li>Skills: HTML, Creativity,annoying my husband</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <p>Here are some things I've been working on:</p>
+        <ol>
+            <li>My First Webpage</li>
+            <li>Adding Images and Links</li>
+        </ol>
+        <img src="your-image.jpg" alt="Project Screenshot">
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="submit_form.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <input type="submit" value="Send">
+        </form>
+        <p>Or find me on:</p>
+        <a href="https://www.twitter.com">Twitter</a> | <a href="https://www.linkedin.com">LinkedIn</a>
+    </section>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <!-- Multimedia -->
+    <section>
+        <audio controls>
+            <source src="your-audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <video width="320" height="240" controls>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+
+<script>
+window.addEventListener("scroll", function () {
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            section.classList.add("show");
+        }
+    });
+});
+
+    function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        if (!name || !email) {
+            alert("Please fill out both your name and email!");
+            return false;
+        }
+        return true;
+    }
+window.addEventListener("scroll", () => {
+    const scrollTopBtn = document.getElementById("scrollTop");
+    if (window.scrollY > 200) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+});
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+    const header = document.querySelector("header h1");
+    const now = new Date();
+    const hours = now.getHours();
+
+    if (hours < 12) {
+        header.textContent = "Good Morning! Welcome to My Portfolio!";
+    } else if (hours < 18) {
+        header.textContent = "Good Afternoon! Welcome to My Portfolio!";
+    } else {
+        header.textContent = "Good Evening! Welcome to My Portfolio!";
+    }
+
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 50; // Offset for nav height
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
++ window.addEventListener("scroll", () => {
+    const scrollTopBtn = document.getElementById("scrollTop");
+    if (window.scrollY > 200) {
+        scrollTopBtn.classList.add("show"); // Make button visible
+    } else {
+        scrollTopBtn.classList.remove("show"); // Hide button
+    }
+});
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
++
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+
+
+
+
+</script>
+
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="gallery">
+        <img src="project1.jpg" alt="Project 1">
+        <img src="project2.jpg" alt="Project 2">
+        <img src="project3.jpg" alt="Project 3">
+    </div>
+</section>
+
+
+<button id="scrollTop" onclick="scrollToTop()">↑ Top</button>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© Built with ♥ while learning HTML</p>
+    </footer>
+</body>
+</html>
